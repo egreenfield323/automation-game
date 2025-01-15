@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b07bjl6jx4lr2"]
+[gd_scene load_steps=5 format=3 uid="uid://b07bjl6jx4lr2"]
 
-[ext_resource type="Script" path="res://scripts/tree.gd" id="1_bexaa"]
-[ext_resource type="Texture2D" uid="uid://dlq7hvipv5aew" path="res://assets/Elements/Crops/carrot_01.png" id="1_i6577"]
+[ext_resource type="Script" path="res://scripts/carrot.gd" id="1_bexaa"]
+[ext_resource type="Texture2D" uid="uid://drrxnom1f3c8l" path="res://assets/UI/Item Images/carrot.png" id="2_h4drq"]
+[ext_resource type="Texture2D" uid="uid://cgbrrt3q4unl3" path="res://assets/Elements/Crops/carrot_02.png" id="3_u2our"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgqft"]
 radius = 6.0
 height = 12.0
 
-[node name="tree" type="Node2D"]
+[node name="carrot" type="Node2D"]
 script = ExtResource("1_bexaa")
+image = ExtResource("2_h4drq")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(4, 4)
@@ -18,6 +20,6 @@ metadata/_edit_group_ = true
 shape = SubResource("CapsuleShape2D_pgqft")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("1_i6577")
+texture = ExtResource("3_u2our")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

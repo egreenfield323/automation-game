@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://u22ylldnhnbl"]
+
+[ext_resource type="Script" path="res://scripts/potato.gd" id="1_bmvi2"]
+[ext_resource type="Texture2D" uid="uid://cxan02lvp4wl8" path="res://assets/Elements/Crops/potato_05.png" id="2_64dnh"]
+[ext_resource type="Texture2D" uid="uid://cx5ls44rlmo8h" path="res://assets/Elements/Crops/potato_03.png" id="3_yvtbn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgqft"]
+radius = 6.0
+height = 12.0
+
+[node name="potato" type="Node2D"]
+script = ExtResource("1_bmvi2")
+image = ExtResource("2_64dnh")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(4, 4)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_pgqft")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("3_yvtbn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
